@@ -2,34 +2,28 @@ import os
 import time
 
 def mainMenu():
-    print("\t\tBumflix\n")
-    print("1. 365 Days")
-    print("2. Sex Education") 
-    print("3. Bridgerton")
-    print("4. Kung-fu Panda")
-    print("5. Marriage Story")
-    print("6. The Platform")
-    print("7. Lalaland")
-    print("8. Stranger Things")
-    print("9. Money Heist")
-    menu = int(input("Choose your film\t : "))
-    os.system("cls")
     loading()
-    return menu
+    os.system('cls')
+    print('\t\t>>>> IMDB <<<<\n\n')
+    print('1. Search Film')
+    print('2. Detail film')
+    print('3. Bookmark')
+    print('4. Exit')
+    menu = int(input('Choose menu\t : '))
+    if menu == 1:
+        search()
+    elif menu == 2:
 
-def loading():
-    for i in range(3):
-        print("loading")
-        time.sleep(0.3)
+        detail()
+    elif menu == 3:
+        bookmark()
+    else:
         os.system("cls")
-        print("loading.")
-        time.sleep(0.3)
-        os.system("cls")
-        print("loading..")
-        time.sleep(0.3)
-        os.system("cls")
-        print("loading...")
-        time.sleep(0.3)
-        os.system("cls")
-       
-mainMenu()
+        print('\n\n\t\t\t\t\t\t\tThank you for coming!\n\n')
+        os._exit(0)
+
+while True:
+    os.system('cls')
+    print('\n\n\n\t\t\t\t\t\t\t\t\t>>>> IMDB <<<<')
+    ip = input('\t\t\t\t\t\t\t\t\tclick start to \n\n')
+    mainMenu()
