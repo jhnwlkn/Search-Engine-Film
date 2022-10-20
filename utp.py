@@ -27,3 +27,36 @@ while True:
     print('\n\n\n\t\t\t\t\t\t\t\t\t>>>> IMDB <<<<')
     ip = input('\t\t\t\t\t\t\t\t\tclick start to \n\n')
     mainMenu()
+
+    def loading():
+    for i in range(3):
+        os.system('cls')
+        print('loading.')
+        time.sleep(0.3)
+        os.system('cls')
+        print('loading..')
+        time.sleep(0.3)
+        os.system('cls')
+        print('loading')
+        time.sleep(0.3)
+        os.system('cls')
+
+def bookmark():
+    favFilm = ()
+    fM = list(favFilm)
+    os.system('cls')
+    print('\tAdd your favorite Film!')
+    choose = 'y'
+    while choose == 'y':
+        fav = input('Film : ')
+        fM.append(fav)
+        favFilm = tuple(fM)
+        choose = input('Add more? (y/n)')
+    os.system('cls')
+    print('\tBookmark\n')
+    print(favFilm)
+    menu = input('Main menu (y/n)')
+    if menu == 'y':
+        mainMenu()
+    else:
+        os._exit(0)
