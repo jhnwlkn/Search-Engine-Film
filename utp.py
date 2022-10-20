@@ -3,8 +3,6 @@ import pynput
 import os
 import time
 
-from sqlalchemy import null
-
 moviesdb = imdb.IMDb()
 
 def search():
