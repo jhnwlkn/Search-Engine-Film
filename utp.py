@@ -3,6 +3,8 @@ import pynput
 import os
 import time
 
+from sqlalchemy import null
+
 moviesdb = imdb.IMDb()
 
 def search():
@@ -30,15 +32,21 @@ def detail():
     directors = movie['directors']
     casting = movie['cast']
 
-    print('Movie info:')
-    print(f'{title} - {year}')
-    print(f'rating: {rating}')
+    print('Movie info :\n')
+    print(f'{title} - {year}\n')
+    print(f'Rating: {rating}')
 
     direcStr = ' '.join(map(str,directors))
-    print(f'directors: {direcStr}')
+    print(f'Directors: {direcStr}')
 
-    actors = ', '.join(map(str, casting))
-    print(f'actors: {actors}')
+    actors = ',\n '.join(map(str, casting))
+    print(f'Actors: {actors}')
+
+    menu = input('Wanna add to your bookmark? (y/n)')
+    if menu == 'y':
+        bookmark()
+    else :
+        os._exit(0)
 
 def loading():
     for i in range(3):
@@ -54,15 +62,13 @@ def loading():
         os.system('cls')
 
 def bookmark():
-    favFilm = ()
-    fM = list(favFilm)
+    favFilm = []
     os.system('cls')
     print('\tAdd your favorite Film!')
     choose = 'y'
     while choose == 'y':
         fav = input('Film : ')
-        fM.append(fav)
-        favFilm = tuple(fM)
+        favFilm.append(fav)
         choose = input('Add more? (y/n)')
     os.system('cls')
     print('\tBookmark\n')
@@ -94,8 +100,7 @@ def mainMenu():
         print('\n\n\t\t\t\t\t\t\tThank you for coming!\n\n')
         os._exit(0)
 
-while True:
-    os.system('cls')
-    print('\n\n\n\t\t\t\t\t\t\t\t\t>>>> IMDB <<<<')
-    ip = input('\t\t\t\t\t\t\t\t\tclick start to \n\n')
-    mainMenu()
+os.system('cls')
+print('\n\n\n\t\t\t\t\t\t\t\t\t>>>> IMDB <<<<')
+ip = input('\t\t\t\t\t\t\t\t\tclick start to \n\n')
+mainMenu()
